@@ -7,5 +7,5 @@ import io.cucumber.testng.CucumberOptions;
 //        plugin = {"pretty", "html:build/cucumber/pretty"},
         glue = {"com.example.ultra"}
 )
-public class Runner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
 }

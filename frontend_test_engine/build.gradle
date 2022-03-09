@@ -14,6 +14,7 @@ ext {
     springBootStarter = '2.6.4'
     selenium = '4.0.0'
     webDriverManager = '5.1.0'
+    atlasVersion = '1.8.0'
 }
 
 dependencies {
@@ -26,6 +27,9 @@ dependencies {
 
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: webDriverManager
+
+    implementation group: 'io.qameta.atlas', name: 'atlas-core', version: atlasVersion
+    implementation group: 'io.qameta.atlas', name: 'atlas-webdriver', version: atlasVersion
 }
 
 test {

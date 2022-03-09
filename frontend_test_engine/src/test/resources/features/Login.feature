@@ -4,4 +4,4 @@ Feature: Login
     Given index page is open
     And credentials are entered
     When login button is pressed
-    Then catalog page is opened
+    Then inventory page is opened

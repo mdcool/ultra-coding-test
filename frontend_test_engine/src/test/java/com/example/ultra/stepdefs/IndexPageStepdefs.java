@@ -1,15 +1,11 @@
 package com.example.ultra.stepdefs;
 
 import com.example.ultra.atlas.AtlasService;
-import com.example.ultra.browser.BrowserService;
 import com.example.ultra.pageobjects.IndexPage;
 import com.example.ultra.pageobjects.SwagLabsSite;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import io.qameta.atlas.core.Atlas;
-import io.qameta.atlas.webdriver.WebDriverConfiguration;
-import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class IndexPageStepdefs {

@@ -3,5 +3,4 @@ Feature: Sample feature with sample test files
 
   Scenario: Dummy scenario
     * sample test step
-#    * open dummy page
     * open atlas dummy page

@@ -7,8 +7,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BrowserService {
+
+    private final Object LOCK = new Object();
+    private ChromeDriver driver;
+
     public WebDriver getDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        synchronized (LOCK) {
+            if (driver == null)
+                driver = new ChromeDriver();
+        }
+        return driver;
+    }
+
+    public void closeBrowser() {
+        synchronized (LOCK) {
+            if (driver != null) {
+                driver.close();
+                driver.quit();
+            }
+        }
     }
 }

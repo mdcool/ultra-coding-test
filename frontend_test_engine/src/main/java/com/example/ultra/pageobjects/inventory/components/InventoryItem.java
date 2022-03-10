@@ -16,6 +16,6 @@ public interface InventoryItem extends BaseElement {
     @FindBy(".//div[@class = 'inventory_item_price']")
     BaseElement price();
 
-    @FindBy(".//button[contains(@class, 'add-to-cart')]")
+    @FindBy(".//button[contains(@id, 'add-to-cart')]")
     BaseElement addToCartButton();
 }

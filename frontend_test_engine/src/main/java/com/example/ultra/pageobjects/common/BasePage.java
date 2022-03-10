@@ -8,6 +8,9 @@ public interface BasePage extends WebPage {
 
     @FindBy("//a[@class = 'shopping_cart_link']")
     BaseElement shoppingCartLink();
+    @FindBy("//span[@class = 'shopping_cart_badge']")
+    BaseElement shoppingCartBadge();
+
 
     default BasePage isPageOpened() {
         throw new NotImplementedException("This method must be implemented for concrete page");

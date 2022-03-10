@@ -1,10 +1,14 @@
 package com.example.ultra.pageobjects;
 
-import io.qameta.atlas.webdriver.WebPage;
+import com.example.ultra.pageobjects.index.IndexPage;
+import com.example.ultra.pageobjects.inventory.InventoryPage;
 import io.qameta.atlas.webdriver.WebSite;
 import io.qameta.atlas.webdriver.extension.Page;
 
 public interface SwagLabsSite extends WebSite {
     @Page
-    WebPage index();
+    IndexPage index();
+
+    @Page(url = "/inventory")
+    InventoryPage inventory();
 }

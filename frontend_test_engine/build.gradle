@@ -16,6 +16,7 @@ ext {
     webDriverManager = '5.1.0'
     atlasVersion = '1.8.0'
     yandexMatchers = '1.4.1'
+    lombok = '1.18.22'
 }
 
 dependencies {
@@ -33,6 +34,9 @@ dependencies {
     implementation group: 'io.qameta.atlas', name: 'atlas-core', version: atlasVersion
     implementation group: 'io.qameta.atlas', name: 'atlas-webdriver', version: atlasVersion
     implementation group: 'ru.yandex.qatools.matchers', name: 'webdriver-matchers', version: yandexMatchers
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombok
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok
 }
 
 test {

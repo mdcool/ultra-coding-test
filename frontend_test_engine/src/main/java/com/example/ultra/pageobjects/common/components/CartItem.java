@@ -15,6 +15,9 @@ public interface CartItem extends AtlasWebElement<WebElement> {
     @FindBy(".//div[@class = 'inventory_item_desc']")
     BaseElement description();
 
+    @FindBy(".//div[@class = 'inventory_item_price']")
+    BaseElement price();
+
     @FindBy(".//button[contains(@class, 'remove')]")
     BaseElement removeButton();
 }

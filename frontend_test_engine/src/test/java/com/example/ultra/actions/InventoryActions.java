@@ -1,7 +1,12 @@
 package com.example.ultra.actions;
 
 import com.example.ultra.atlas.AtlasService;
+import com.example.ultra.dto.Cart;
+import com.example.ultra.dto.Product;
+import com.example.ultra.execution.Key;
+import com.example.ultra.execution.ScenarioContext;
 import com.example.ultra.pageobjects.inventory.InventoryPage;
+import com.example.ultra.pageobjects.inventory.components.InventoryItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +18,8 @@ import static ru.yandex.qatools.matchers.webdriver.TextMatcher.text;
 public class InventoryActions {
     @Autowired
     AtlasService atlasService;
+    @Autowired
+    ScenarioContext scenarioContext;
 
     public void inventoryPageIsOpened() {
         getInventoryPage();
@@ -24,8 +31,16 @@ public class InventoryActions {
 
     public void addAProductToCart() {
         InventoryPage inventoryPage = getInventoryPage();
-        inventoryPage.inventoryItems().randomItem().addToCartButton().click();
-        // TODO: 10.03.2022 cache the product for future validations
+        InventoryItem inventoryItem = inventoryPage.inventoryItems().randomItem();
+        Product product = new Product()
+                .withName(inventoryItem.name().getText())
+                .withDescription(inventoryItem.description().getText())
+                .withPrice(inventoryItem.price().getText())
+                .withQuantity(1);
+        inventoryItem.addToCartButton().click();
+        Cart cart = new Cart();
+        cart.products.put(product, 1);
+        scenarioContext.save(Key.CART, cart);
         inventoryPage.shoppingCartBadge().should(displayed()).should(text(equalTo("1")));
     }
 }

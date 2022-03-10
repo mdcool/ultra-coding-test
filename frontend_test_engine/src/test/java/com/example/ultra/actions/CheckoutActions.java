@@ -1,21 +1,25 @@
 package com.example.ultra.actions;
 
 import com.example.ultra.atlas.AtlasService;
+import com.example.ultra.dto.Cart;
+import com.example.ultra.execution.Key;
+import com.example.ultra.execution.ScenarioContext;
 import com.example.ultra.pageobjects.checkout.CheckoutCompletePage;
 import com.example.ultra.pageobjects.checkout.CheckoutStepOnePage;
 import com.example.ultra.pageobjects.checkout.CheckoutStepTwoPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.not;
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
-import static ru.yandex.qatools.matchers.webdriver.TextMatcher.text;
 
 @Component
 public class CheckoutActions {
     @Autowired
     AtlasService atlasService;
+    @Autowired
+    ScenarioContext scenarioContext;
 
     private CheckoutStepOnePage getCheckoutStepOnePage() {
         return atlasService.get(CheckoutStepOnePage.class).isPageOpened();
@@ -42,8 +46,8 @@ public class CheckoutActions {
 
     public void verifyCartProducts() {
         CheckoutStepTwoPage page = getCheckoutStepTwoPage();
-        // TODO: 10.03.2022 add products validation here
-        // TODO: 10.03.2022 validate totals validation here
+        Cart cart = scenarioContext.get(Key.CART, Cart.class);
+        page.cartItems().should(hasSize(cart.products.size()));
     }
 
     public void finishCheckout() {

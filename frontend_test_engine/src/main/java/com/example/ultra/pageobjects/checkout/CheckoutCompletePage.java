@@ -6,12 +6,12 @@ import io.qameta.atlas.webdriver.extension.FindBy;
 
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public interface CheckoutComplete extends BasePage {
+public interface CheckoutCompletePage extends BasePage {
     @FindBy("//h2[@class = 'complete-header']")
     BaseElement completeHeader();
 
     @Override
-    default BasePage isPageOpened() {
+    default CheckoutCompletePage isPageOpened() {
         completeHeader().should(displayed());
         return this;
     }

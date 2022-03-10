@@ -6,7 +6,7 @@ import io.qameta.atlas.webdriver.extension.FindBy;
 
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public interface CheckoutStepOne extends BasePage {
+public interface CheckoutStepOnePage extends BasePage {
     @FindBy("//input[@id = 'first-name']")
     BaseElement firstNameInput();
 
@@ -20,7 +20,7 @@ public interface CheckoutStepOne extends BasePage {
     BaseElement continueButton();
 
     @Override
-    default BasePage isPageOpened() {
+    default CheckoutStepOnePage isPageOpened() {
         firstNameInput().should(displayed());
         return this;
     }

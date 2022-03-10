@@ -8,7 +8,7 @@ import io.qameta.atlas.webdriver.extension.FindBy;
 
 import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
-public interface CheckoutStepTwo extends BasePage {
+public interface CheckoutStepTwoPage extends BasePage {
     @FindBy("//div[@class = 'cart_list']")
     BaseElement cartListContainer();
 
@@ -19,7 +19,7 @@ public interface CheckoutStepTwo extends BasePage {
     BaseElement finishButton();
 
     @Override
-    default BasePage isPageOpened() {
+    default CheckoutStepTwoPage isPageOpened() {
         cartListContainer().should(displayed());
         return this;
     }

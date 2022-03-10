@@ -23,7 +23,6 @@ public class CheckoutStepdefs {
         checkoutActions.continueToStepTwo();
         checkoutActions.verifyCartProducts();
         checkoutActions.finishCheckout();
-        checkoutActions.verifyOrderSuccessful();
     }
 
     @Then("user is able to place the order")

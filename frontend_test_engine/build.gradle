@@ -5,6 +5,9 @@ plugins {
 group 'com.example.ultra'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 17
+targetCompatibility = 17
+
 repositories {
     mavenCentral()
 }
@@ -47,4 +50,6 @@ dependencies {
 
 test {
     useTestNG()
+    outputs.upToDateWhen { false }
+    scanForTestClasses = false
 }

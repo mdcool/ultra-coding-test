@@ -15,7 +15,7 @@ public interface CheckoutStepTwoPage extends BasePage {
     @FindBy("//div[@class = 'cart_item']")
     ElementsCollection<CartItem> cartItems();
 
-    @FindBy("//input[@id = 'finish']")
+    @FindBy("//button[@id = 'finish']")
     BaseElement finishButton();
 
     @Override

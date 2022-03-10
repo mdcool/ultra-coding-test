@@ -4,12 +4,17 @@ import com.example.ultra.atlas.AtlasService;
 import com.example.ultra.pageobjects.SwagLabsSite;
 import com.example.ultra.pageobjects.index.IndexPage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class IndexActions {
     @Autowired
     AtlasService atlasService;
+    @Value("${website.username}")
+    String userName;
+    @Value("${website.password}")
+    String userPassword;
 
     public void websiteIsOpen() {
         IndexPage indexPage = atlasService.get(SwagLabsSite.class).index();
@@ -23,8 +28,8 @@ public class IndexActions {
 
     public void enterCredentials() {
         IndexPage indexPage = getIndexPage();
-        indexPage.userNameInput().sendKeys("standard_user");
-        indexPage.passwordInput().sendKeys("secret_sauce");
+        indexPage.userNameInput().sendKeys(userName);
+        indexPage.passwordInput().sendKeys(userPassword);
     }
 
     public void pressLoginButton() {

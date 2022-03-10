@@ -1,5 +1,4 @@
-url: https://www.saucedemo.com/
-
-user:
-  name: standard_user
+website:
+  url: https://www.saucedemo.com/
+  username: standard_user
   password: secret_sauce

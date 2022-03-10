@@ -12,6 +12,7 @@ repositories {
 ext {
     cucumber = '7.2.3'
     springBootStarter = '2.6.4'
+    snakeyaml = '1.29'
     selenium = '3.141.59' // todo upgrade later together with java17 support of Atlas
     webDriverManager = '5.1.0'
     atlasVersion = '1.8.0'
@@ -27,6 +28,8 @@ dependencies {
 
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: springBootStarter
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootStarter
+    implementation group: 'org.yaml', name: 'snakeyaml', version: snakeyaml
+
 
 //    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: selenium
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium

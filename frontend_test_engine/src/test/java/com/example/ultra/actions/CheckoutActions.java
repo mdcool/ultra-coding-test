@@ -7,6 +7,7 @@ import com.example.ultra.execution.ScenarioContext;
 import com.example.ultra.pageobjects.checkout.CheckoutCompletePage;
 import com.example.ultra.pageobjects.checkout.CheckoutStepOnePage;
 import com.example.ultra.pageobjects.checkout.CheckoutStepTwoPage;
+import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,10 +35,11 @@ public class CheckoutActions {
     }
 
     public void populateShippingDetails() {
+        Faker faker = new Faker();
         CheckoutStepOnePage page = getCheckoutStepOnePage();
-        page.firstNameInput().sendKeys("blabla"); // TODO: 10.03.2022 randomize
-        page.lastNameInput().sendKeys("blabla"); // TODO: 10.03.2022 randomize
-        page.zipCodeInput().sendKeys("12345"); // TODO: 10.03.2022 randomize
+        page.firstNameInput().sendKeys(faker.name().firstName());
+        page.lastNameInput().sendKeys(faker.name().lastName());
+        page.zipCodeInput().sendKeys(faker.address().zipCode());
     }
 
     public void continueToStepTwo() {

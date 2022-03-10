@@ -17,6 +17,7 @@ ext {
     atlasVersion = '1.8.0'
     yandexMatchers = '1.4.1'
     lombok = '1.18.22'
+    faker = '1.0.2'
 }
 
 dependencies {
@@ -37,6 +38,8 @@ dependencies {
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: lombok
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok
+
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: faker
 }
 
 test {
